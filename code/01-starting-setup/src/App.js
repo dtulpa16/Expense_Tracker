@@ -3,7 +3,7 @@ import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 // hello!
 
-const App= () => {
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -26,12 +26,16 @@ const App= () => {
     },
   ];
 
+  const addHandler = (expense) =>{
+
+  }
+
   return (
     <div>
-    <NewExpense/>
-      <Expenses expenses={expenses}/>
+      <NewExpense onAddExpense={addHandler}/>
+      <Expenses expenses={expenses} />
     </div>
   );
-}
+};
 
 export default App;
