@@ -6,12 +6,7 @@ const ExpenseForm = (props) => {
   const [enteredTitle, SetEnteredTitle] = useState("");
   const [enteredAmount, SetEnteredAmount] = useState("");
   const [enteredDate, SetEnteredDate] = useState("");
-
-  //   const [userInput, setUserInput] = useState({
-  //     enteredTitle: "",
-  //     enteredAmount: "",
-  //     enteredDate: "",
-  //   });
+  const [clicked, setClicked] = useState(false)
 
   const titleChangeHandler = (event) => {
     SetEnteredTitle(event.target.value);
@@ -30,7 +25,7 @@ const ExpenseForm = (props) => {
 
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
     props.onSaveExpenseData(expenseData);
@@ -72,6 +67,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+      <button type = 'button' onClick={()=>props.showForm()}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
